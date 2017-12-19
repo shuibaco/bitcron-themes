@@ -1,0 +1,120 @@
+html
+    head
+		+h.headers
+        +h.load('/template/style.scss', 'font')
+
+		block title
+			if request.path.startswith('/tag/') and posts.tags
+				title= '标签：' + posts.tags.join("+") + ' - ' + site.title
+			elif request.path.startswith('/category/') and posts.category
+				title= '分类：' + posts.category.title + ' - ' + site.title
+			elif request.args.s
+				title= '搜索：' + request.args.s + ' - ' + site.title
+			else
+				title= site.title
+
+	body
+		.wrapper
+			header.site
+				h1
+					a(href='/')= site.title
+				span= site.configs.sub_title
+				+site.socials
+
+			main
+				+tab(['博客', '分类', '归档', '搜索'], active=1)
+					#tab: #blog
+						block content
+							if request.path.startswith('/tag/') and posts.tags
+								.labeltitle= '标签「%s」下的文章' %posts.tags.join("+")
+							elif request.path.startswith('/category/') and posts.category
+								.labeltitle= '分类「%s」下的文章' %posts.category.title
+							elif request.args.s
+								.labeltitle= '包含「%s」关键字的文章' %request.args.s
+
+							+posts.set_min_per_page(8)
+							+page(as_ul=False)
+								for post in posts: section.post
+									header: h2
+										a(href=post.url)= post.title
+									ul.info
+										li
+											i.fa.fa-clock-o
+											time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y.%m.%d')
+										if post.category: li
+											i.fa.fa-folder-open-o
+											a(href=post.category.url)= post.category.title
+										if post.tags: li
+											i.fa.fa-tags
+											for tag in post.tags
+												a.tag(href='/tag/{{tag}}')= tag
+										li
+											i.fa.fa-eye
+											span= (post.visits or 0)
+										li
+											i.fa.fa-comment-o
+											span= (post.comments_count or 0)
+
+					#tab: #catntag
+						if posts.categories: section.cat
+							header
+								h2 分类
+								span= '共有%s个分类'%(d.get_data(types='folder', return_count=true, level=1, min_posts_count=1, render=true))
+							ul: for category in posts.categories: li
+								a(href=category.url)= category.title
+								span= '(%s)'%category.posts_count
+
+						if site.tags: section.tag
+							header
+								h2 标签
+								span= '共有%s个标签'%site.tags.length
+							ul: for tag_name, tag_count in site.tags: li
+						    	a(href='/tag/{{tag_name}}')= tag_name
+						    	span= '(%s)'%tag_count
+
+					#tab: #archive
+						entries = d.get_data(types='post', limit=1000, sort='desc').group('-date:year')
+						for year, year_posts in entries
+							section.archive
+								header
+									h2= year
+										year_start_date = '%s-1-1' %year
+										year_end_date = '%s-1-1' %(year.int+1)
+										yearly_count = d.get_data(type='post', return_count=true, date_start=year_start_date, date_end=year_end_date)
+									span= '共有%s篇文章' %yearly_count
+
+								ul: for post in year_posts: li
+									a(href=post.url)= post.title
+									time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%m.%d')
+
+					#tab: #search
+						section.search
+							header: h2 搜索
+							+posts.search_in_html()
+
+			footer
+				span= '© %s' %(site.now.year)
+					a(href='/')= site.title
+					| - 
+					a(href='/feed')= '%s篇文章等着你订阅' %(d.get_data(types='post', return_count=true, with_page=false))
+	            span.oh -
+	            span 
+	                a(href='https://blog.shuiba.co/bitcron-theme-tab', target='_blank') 主题「它布」
+	                | - 
+	                a(href='https://bitcron.com', target='_blank') 由 Bitcron 驱动
+
+	+h.back_to_top(label='▲')
+
+	script
+		// archive toggle
+		$(document).ready(function($){
+			$('#archive ul').hide();
+			$('#archive ul:first').show();
+			$('#archive header').click(function() {
+				$(this).next().slideToggle('fast');
+				return false;
+			});
+		});
+
+        // replace search text
+        document.getElementById("search_posts_keywords").placeholder = "输入内容并回车";

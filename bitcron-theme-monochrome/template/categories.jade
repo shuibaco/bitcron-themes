@@ -1,0 +1,33 @@
+extends index
+
+block title
+	title= '分类 - ' + site.title
+
+block content
+	header
+		h1 分类
+		span= d.get_data(types='folder', return_count=true, level=1, min_posts_count=1, render=true)
+
+	#categories
+		for category in posts.categories
+			header
+				h2= category.title
+				span= category.posts_count
+
+			section
+				.catcon= category.content
+				ul: cat_posts = d.get_data(types='post', limit=500, sort='desc', path=category.path)
+					for post in cat_posts: li
+						time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%m.%d')
+						a(href=post.url)= post.title
+	hr
+
+	script.
+		$(document).ready(function($){
+			$('#categories section').hide();
+			$('#categories header').click(function() {
+				$(this).next().slideToggle('fast');
+				$(this).toggleClass('on');
+				return false;
+			});
+		});

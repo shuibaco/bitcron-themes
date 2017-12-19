@@ -1,0 +1,13 @@
+html
+    head
+		+h.headers
+		+h.load('/template/style.scss')
+
+		title= '找不到啦！- ' + site.title
+
+	body	
+		.four
+			h1= '404'
+			p= '页面被我吃了(◕ᴗ◕)'
+			p: a(href='/')
+				返回打我

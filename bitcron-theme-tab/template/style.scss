@@ -1,0 +1,487 @@
+/*
+Theme Name: Tab
+Theme URI: https://blog.shuiba.co/bitcron-theme-tab
+Author: Shuibaco
+Author URI: https://shuiba.co
+MIT License: Copyright (c) 2017 Shuibaco
+*/
+
+$pcolor: #77a34e;
+$tcolor: #444;
+$bgcolor: #e5e5e5;
+$pbgcolor: #fcfcfc;
+$wpadding: 50px;
+$npadding: 27px;
+
+/* Mixins ----------------------------------*/
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -ms-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+/* Basic ---------------------------------*/
+body {
+	margin: 0 auto;
+	font-family: "Microsoft Yahei", sans-serif;
+	font-weight: 300;
+	line-height: 1.6em;
+    word-wrap: break-word;
+    color: $tcolor;
+    background: $bgcolor;
+    font-size: 1.1em;
+}
+a {
+    @include transition(0.5s);
+	text-decoration: none;
+	color: $pcolor;
+	opacity: 0.7;
+	&:hover {
+		opacity: 1;
+	}
+}
+img {
+    max-width: 100%;
+    @include border-radius(5px);
+    box-sizing: border-box;
+    padding: 3px;
+    margin-bottom: -7.5px;
+}
+hr {
+	border: 0;
+	border-top: 1px solid #eee;
+	margin: 50px auto;
+	width: 20%;
+}
+pre {
+	overflow: auto;
+    background: #eee;
+    @include border-radius(5px);
+    padding: 10px 18px;
+    code {
+    	padding: 0;
+    }
+}
+code {
+    background: #eee;
+    @include border-radius(3px);
+    padding: 2px 5px;
+    word-wrap: break-word;
+}
+del {
+	opacity: 0.3;
+}
+blockquote {
+    border-left: 10px solid #eee;
+    padding: 1px 30px;
+    margin: 0;
+    @include border-radius(15px);
+}
+figure {
+    padding: 0;
+    margin: 1em 0;
+    text-align: center;
+    border: 1px solid #eee;
+    @include border-radius(5px);
+    figcaption {
+        font-size: 0.8em;
+        padding: 15px;
+        margin: 0 3px 3px;
+        background: #eee;
+        @include border-radius(2px);
+        line-height: 1.6em;
+        box-sizing: border-box;
+    }
+}
+ul ul, ul ol, ol ol, ol ul {
+    padding-left: 1em;
+}
+header h1, header h2 {
+	font-weight: 400;
+}
+table {
+    background-color: #f5f5f5;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    word-break: break-all;
+    margin: 1em 0;
+    tbody {
+        font-size: 0.9em;
+    }
+}
+thead tr {
+    border-bottom: 3px solid #eee;
+}
+th, td {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    padding: 0.5em;
+    vertical-align: top;
+    &:first-child {
+        border-left: 0;
+    }
+}
+table tbody > tr:nth-child(odd) > td, table tbody > tr:nth-child(odd) > th {
+    background-color: #fcfcfc;
+}
+.wrapper {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+
+/* Header ---------------------------------*/
+header.site {
+	h1 {
+		font-family: 'Hiragino Kaku Gothic Pro', 'WenQuanYi Zen Hei', '微軟正黑體', '蘋果儷中黑', Helvetica, Arial, sans-serif;
+		font-size: 3em;
+    	margin: 80px 0 20px;
+        font-weight: bold;
+	}
+    span {
+    	font-size: 0.9em;
+    	color: #aaa;
+    }
+	.my_socials {
+	    float: right;
+	    margin-top: -43px;
+	    font-size: 20px;
+	}
+}
+
+/* Tab ---------------------------------*/
+.tabs_set {
+    margin: 70px 0 10px;
+	ul.horizontal {
+	    text-align: left !important;
+	    border: 0!important;
+	    padding: 0 0 4px 0!important;
+	    margin: 0!important;
+	    font-size: 0.9em;
+	    li.active a, li a:hover {
+	    	opacity: 1;
+	    	color: inherit!important;
+	    }
+	    li {
+	    	margin: 0!important;
+	    }
+	    li a {
+	    	font-size: inherit!important;
+	    	padding: 8px 15px 30px!important;
+	    	background: $pbgcolor;
+	    	@include border-radius(8px);
+	    	opacity: 0.5;
+	    }
+	}
+	.tab_item {
+		padding: 25px $wpadding 50px;
+    	background: $pbgcolor;
+    	@include border-radius(10px);
+	}
+}
+
+/* Main ---------------------------------*/
+ul.info {
+    padding: 0;
+    margin: 3px 0 5px;
+    font-size: 0.8em;
+    color: #bbb;
+    li {
+    	list-style: none;
+    	display: inline-block;
+    	margin-left: 5px;
+    	&:first-child {
+    		margin-left: 0;
+    	}
+    }
+    a {
+        color: #bbb;
+        opacity: 1;
+        &:hover {
+            color: $tcolor;
+        }
+    }
+}
+section h2 {
+	margin-bottom: 0;
+	display: inline-block;
+}
+section header span {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-left: 3px;
+}
+section.archive header {
+	cursor: pointer;
+	@include transition(0.5s);
+	&:hover {
+		@include transition(0.5s);
+		opacity: 0.5;
+	}
+}
+section.tag {
+	ul {
+		padding: 0 1em;
+		li {
+			display: inline-block;
+			margin-right: 5px;
+		}
+	}
+}
+section.post {
+	h2 {
+		width: 100%;
+		a {
+			display: inline-block;
+			width: 100%;
+		}
+	}
+	.content {
+		padding-bottom: 50px;
+	    margin: 30px 0;
+	    border-bottom: 1px solid #eee;
+	}
+}
+section.search input#search_posts_keywords {
+    margin-top: 25px;
+    border: 1px solid #ddd;
+	outline: none;
+    @include border-radius(5px);
+    padding: 15px;
+    width: 100%;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    color: inherit;
+    box-sizing: border-box;
+    opacity: 0.5;
+    @include transition(0.5s);
+    &:hover, &:focus {
+    	opacity: 1;
+    }
+}
+.footnotes ol p, ul p, ol p, pre p {
+	margin: 0;
+	padding: 0!important;
+}
+.footnotes {
+	font-size: 0.95em;
+}
+.toc {
+    margin: 30px 0;
+    border: 1px solid #eee;
+    @include border-radius(5px);
+    font-size: 0.95em;
+}
+.labeltitle {
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 15px 0;
+}
+
+/* Footer ---------------------------------*/
+footer {
+    text-align: center;
+    font-size: 0.7em;
+    line-height: 1.5em;
+    color: #aaa;
+    a {
+        color: #aaa;
+        opacity: 1;
+        &:hover {
+            color: $tcolor;
+        }
+    }
+}
+
+/* Responsive ---------------------------------*/
+@media only screen and (max-width : 700px) {
+	header.site {
+    	text-align: center;
+    }
+    header.site .my_socials {
+    	float: none;
+    	margin-top: 20px;
+	    font-size: inherit;
+    }
+    .tabs_set ul.horizontal {
+    	text-align: center!important;
+    }
+    footer span {
+    	display: block;
+    }
+    footer span.oh {
+    	display: none;
+    }
+}
+@media only screen and (max-width : 600px) {
+	.tabs_set .tab_item {
+		padding: 20px $npadding 50px;
+	}
+	.doc_comments #new_comment_form .comment_submit_button {
+		padding: 0 10px!important;
+	}
+	.doc_comments #new_comment_form .input_body li input {
+		padding-right: 0.5em!important;
+	}
+}
+
+/* Comments ---------------------------------*/
+.doc_comments {
+    font-size: 0.9em;
+    margin: 0!important;
+    padding: 0!important;
+    .comments_block_title {
+    	display: none;
+    }
+
+    /* New comment form */
+    #new_comment_form {
+    	border: 1px solid #eee!important;
+    	@include border-radius(5px);
+    	background: inherit!important;
+    	margin: 30px 0!important;
+    	.input_body {
+    		background: #eee!important;
+    		opacity: 0.7;
+    		@include transition(0.5s);
+    		&:hover, &:focus {
+    			opacity: 1;
+    		}
+    		ul {
+    			overflow: auto;
+    			margin-top: -4px!important;
+    			li input {
+    				padding-left: 0!important;
+    			}
+    		}
+    		.comment_submit_button {
+    			background: $pcolor!important;
+    			@include border-radius(5px);
+    			&:hover {
+    				opacity: 1;
+    				cursor: pointer;
+    			}
+    		}
+            input {
+                /* remove button style in ios */
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+    	}
+    }
+
+    /* Comment lists */
+    .comments {
+    	.comment {
+	    	background: inherit!important;
+	    	margin: 0!important;
+	    	border: none!important;
+	    	padding: 0!important;
+	    	.author {
+	    		padding-bottom: 0!important;
+	    		b {
+	    			background: transparent!important;
+	    			color: inherit!important;
+	    		}
+	    	}
+	    	.author .reply {
+	    		color: #fff!important;
+	    		background: #bbb;
+	    		@include border-radius(2px);
+	    		padding: 2px 5px;
+	    	}
+	    	.author-date small {
+	    		font-size: 0.7em;
+	    		color: #bbb;
+	    	}
+	    	.p_part, .sub_comments {
+	    		padding-left: 48px!important;
+	    	}
+	    	.comment_wrapper {
+			    border-top: 1px solid #eee;
+			    padding-top: 1em;
+			}
+			.sub_comments .sub_comments {
+				padding-left: 0!important;
+			}
+	    }
+    }
+}
+
+/* Syntax highlighter by Pygments ----------------------------------*/
+.codehilite .c { color: #999999 } /* Comment */
+.codehilite .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.codehilite .k { color: #8B008B; font-weight: bold } /* Keyword */
+.codehilite .n { color: #555555 } /* Name */
+.codehilite .o { color: #555555 } /* Operator */
+.codehilite .p { color: #555555 } /* Punctuation */
+.codehilite .cm { color: #999999 } /* Comment.Multiline */
+.codehilite .cp { color: #1e889b } /* Comment.Preproc */
+.codehilite .c1 { color: #999999 } /* Comment.Single */
+.codehilite .cs { color: #8B008B; font-weight: bold } /* Comment.Special */
+.codehilite .gd { color: #aa0000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #aa0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00aa00 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #555555 } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #aa0000 } /* Generic.Traceback */
+.codehilite .kc { color: #8B008B; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #8B008B; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #8B008B; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #8B008B; font-weight: bold } /* Keyword.Pseudo */
+.codehilite .kr { color: #8B008B; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #a7a7a7; font-weight: bold } /* Keyword.Type */
+.codehilite .m { color: #B452CD } /* Literal.Number */
+.codehilite .s { color: #CD5555 } /* Literal.String */
+.codehilite .na { color: #658b00 } /* Name.Attribute */
+.codehilite .nb { color: #658b00 } /* Name.Builtin */
+.codehilite .nc { color: #008b45; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #00688B } /* Name.Constant */
+.codehilite .nd { color: #707a7c } /* Name.Decorator */
+.codehilite .ni { color: #555555 } /* Name.Entity */
+.codehilite .ne { color: #008b45; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #008b45 } /* Name.Function */
+.codehilite .nl { color: #555555 } /* Name.Label */
+.codehilite .nn { color: #008b45; text-decoration: underline } /* Name.Namespace */
+.codehilite .nx { color: #555555 } /* Name.Other */
+.codehilite .py { color: #555555 } /* Name.Property */
+.codehilite .nt { color: #8B008B; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #00688B } /* Name.Variable */
+.codehilite .ow { color: #8B008B } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #B452CD } /* Literal.Number.Bin */
+.codehilite .mf { color: #B452CD } /* Literal.Number.Float */
+.codehilite .mh { color: #B452CD } /* Literal.Number.Hex */
+.codehilite .mi { color: #B452CD } /* Literal.Number.Integer */
+.codehilite .mo { color: #B452CD } /* Literal.Number.Oct */
+.codehilite .sb { color: #CD5555 } /* Literal.String.Backtick */
+.codehilite .sc { color: #CD5555 } /* Literal.String.Char */
+.codehilite .sd { color: #CD5555 } /* Literal.String.Doc */
+.codehilite .s2 { color: #CD5555 } /* Literal.String.Double */
+.codehilite .se { color: #CD5555 } /* Literal.String.Escape */
+.codehilite .sh { color: #1c7e71; font-style: italic } /* Literal.String.Heredoc */
+.codehilite .si { color: #CD5555 } /* Literal.String.Interpol */
+.codehilite .sx { color: #cb6c20 } /* Literal.String.Other */
+.codehilite .sr { color: #1c7e71 } /* Literal.String.Regex */
+.codehilite .s1 { color: #CD5555 } /* Literal.String.Single */
+.codehilite .ss { color: #CD5555 } /* Literal.String.Symbol */
+.codehilite .bp { color: #658b00 } /* Name.Builtin.Pseudo */
+.codehilite .vc { color: #00688B } /* Name.Variable.Class */
+.codehilite .vg { color: #00688B } /* Name.Variable.Global */
+.codehilite .vi { color: #00688B } /* Name.Variable.Instance */
+.codehilite .il { color: #B452CD } /* Literal.Number.Integer.Long */

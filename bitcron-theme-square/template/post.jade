@@ -1,0 +1,33 @@
+extends index
+
+block title
+	title= post.title + ' • ' + site.title
+
+block main
+	ul#info
+		li: time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y.%m.%d')
+		if post.category: li
+			a(href=post.category.url, title='分类')= post.category.title
+		if post.tags: li
+			for tag in post.tags
+				a.tag(href='/tag/{{tag}}', title='标签')= tag
+		li: span= ('{0:,}'.format(post.text_words)) + '字'
+		li: span= ('{0:,}'.format(post.visits or 0)) + '阅'
+		if post.metadata.comment not in ['no', 'No', False]
+			li: span: a(href='#comments')= ('{0:,}'.format(post.comments_count or 0)) + '评'
+	h1#postitle= post.title
+	
+	#content= post.content
+
+	if post.metadata.status not in ['page', 'Page']
+		#postpager
+			if posts.previous_one
+				a.pre(href=posts.previous_one.url, title=posts.previous_one.title)
+			if posts.next_one
+				a.next(href=posts.next_one.url, title=posts.next_one.title)
+
+	hr
+
+	if post.metadata.comment not in ['no', 'No', False]
+		#comments
+			+post.comments_as_html()

@@ -1,0 +1,30 @@
+extends index
+
+block title
+	title= post.title + ' - ' + site.title
+
+block content
+	header
+		h1= post.title
+		.info
+			time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y.%m.%d')
+			if post.category
+				| @
+				post.category.title
+	.content= post.content
+	hr
+	.posme
+		if post.metadata.comment not in ['no', 'No', False]
+			span: a(href='{{post.url}}#comments') 评论
+		if post.metadata.status not in ['page', 'Page']
+			.paginator.pager.pagination
+				if posts.pre_one
+					a.pre(href=posts.previous_one.url) 更新
+				if posts.next_one
+					a.next(href=posts.next_one.url) 更早
+
+	if post.metadata.comment not in ['no', 'No', False]
+		#comments
+			+post.comments_as_html()
+	elif post.metadata.status not in ['page', 'Page']
+		hr
