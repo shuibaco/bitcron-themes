@@ -1,1 +1,1 @@
-![screenshot.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-hello/master/screenshot.jpg)
+![screenshot.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-themes/master/01%20hello/screenshot.jpg)
