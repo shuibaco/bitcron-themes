@@ -1,0 +1,69 @@
+html
+    head
+    	+h.headers
+    	+h.load('markdown', '/template/style.scss')
+
+        block title
+            title= site.title
+
+    body(style='background-image:url({{site.background_image}})')
+    	.wrapper
+    		aside#myNav.overlay
+    			a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
+    			.overlay-content
+	    			header
+		                a.logo(href='/')
+		                    img(src= site.site_avatar, alt=site.title)
+		                +font('wyangkaiti')
+			                h1
+			                	a(href='/')= site.title
+	    			nav
+	    				+site.just_nav
+	    			+site.socials
+	    			+posts.search_in_html()
+
+	    	.switch
+                a.menu(href='javascript:void(0)', onclick='openNav()')
+                    span &#9776;
+                a(href='/')
+                    img(src= site.site_avatar, alt=site.title)
+
+    		main
+    			block content
+
+			footer
+				span= '© %s %s - ' %(site.now.year, site.title)
+                    a(href='https://blog.shuiba.co/bitcron-theme-ink', target='_blank') Theme 「墨」
+                    | -
+                    a(href='https://bitcron.com', target='_blank') Powered by Bitcron
+
+
+	+h.back_to_top(label='▲')
+
+    script
+        // smooth scrolling
+        $(function() {
+          $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if (target.length) {
+                $('html,body').animate({
+                  scrollTop: target.offset().top
+                }, 500);
+                return false;
+              }
+            }
+          });
+        });
+
+        // replace search text
+        document.getElementById('search_posts_keywords').placeholder = '搜索';
+
+        // responsive menu
+		function openNav() {
+		    document.getElementById("myNav").style.height = "100%";
+		}
+		function closeNav() {
+		    document.getElementById("myNav").style.height = "0%";
+		}

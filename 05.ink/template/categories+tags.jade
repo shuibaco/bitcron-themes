@@ -1,0 +1,24 @@
+extends base
+
+block title
+	if request.path.startswith('/tags')
+		title= '标签' + ' - ' + site.title
+	elif request.path.startswith('/categories')
+		title= '分类'  + ' - ' + site.title
+
+block content
+	if request.path.startswith('/tags')
+		section.tags
+			h2 标签
+				span= '(%s)'%site.tags.length
+			ul: for tag_name, tag_count in site.tags: li
+		    	a(href='/tag/{{tag_name}}')= tag_name
+		    		span= '(%s)'%tag_count
+
+	elif request.path.startswith('/categories')
+		section.categories
+			h2 分类
+				span= '(%s)'%(d.get_data(types='folder', return_count=true, level=1, min_posts_count=1, render=true))
+			ul: for category in posts.categories: li
+				a(href=category.url)= category.title
+					span= '%s篇文章'%category.posts_count

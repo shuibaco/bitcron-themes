@@ -1,0 +1,27 @@
+extends index
+
+block title
+	title= '搜索 - ' + site.title
+
+block content
+	if request.args.s
+		header
+			h1= '「' + request.args.s + '」的搜索结果'
+			span= d.get_data(types="post", keywords=request.args.s, return_count=true, with_page=false)
+
+		#search
+			+posts.search_in_html(placeholder='搜索', base_url='/search')
+
+		#result
+			.catcon 仅显示符合关键字的前200篇文章
+			search_posts = posts.search(keywords=request.args.s, limit=200)
+			ul: for post in search_posts: li
+				time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%m.%d')
+				a(href=post.url)= post.title
+	
+	else
+		header.sp: h1 搜索
+
+		#search
+			+posts.search_in_html(placeholder='搜索', base_url='/search')
+	hr

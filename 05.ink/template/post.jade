@@ -1,0 +1,37 @@
+extends base
+
+block title
+    title= post.title + ' - ' + site.title
+
+block content
+	article
+		header: h2.post= post.title
+		.info
+			time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y.%m.%d')
+		    span= '%s阅' %(post.visits or 0)
+		    span: a(href='{{post.url}}#comments')= '%s评' %(post.comments_count or 0)
+			if post.category: span
+				a(href=post.category.url)= post.category.title
+			if post.tags: span.tags
+				for tag in post.tags
+					a.tag(href='/tag/{{tag}}')= tag
+
+		.markdown= post.content
+
+		.eof
+			span EOF
+
+		.paginator_container
+		    if posts.pre_one
+				a.pre(href=posts.previous_one.url)= posts.previous_one.title
+			else
+				span.pre 
+					已是最新一篇
+			if posts.next_one
+				a.next(href=posts.next_one.url)= posts.next_one.title
+			else
+				span.next 
+					已是最早一篇
+
+		#comments
+			+post.comments_as_html()
