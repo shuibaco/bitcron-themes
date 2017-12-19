@@ -1,0 +1,17 @@
+extends index
+
+block title
+	title= '归档：' + request.path.split('/')[-1] + '年 - ' + site.title
+
+block content
+	if request.path.strip('/')=='archive'
+		+response.redirect('/archives')
+
+	#postlist
+		year_start_date = '%s-1-1'%request.path.split('/')[-1]
+		year_end_date = '%s-1-1'%(request.path.split('/')[-1].int+1)
+		year_posts = d.get_data(types='post', limit=8, sort='desc', date_start=year_start_date, date_end=year_end_date)
+		+page(as_ul=False)
+			for post in year_posts: .block
+				a(href=post.url)= post.title
+					sup= (post.visits or 0)
