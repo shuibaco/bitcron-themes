@@ -1,5 +1,5 @@
-1. [「你好呀」](//blog.shuiba.co/bitcron-theme-hello) `2017-06-09` `¥50`
-2. [「庸」](//blog.shuiba.co/bitcron-theme-ordinary) `2017-07-21` `¥60`
+1. `2017-06-09` `¥50` [「你好呀」](//blog.shuiba.co/bitcron-theme-hello)
+2. `2017-07-21` `¥60` [「庸」](//blog.shuiba.co/bitcron-theme-ordinary)
 3. [「日记」](//blog.shuiba.co/bitcron-theme-diary) `2017-07-24` `¥40`
 4. [「它布」](//blog.shuiba.co/bitcron-theme-tab) `2017-07-26` `¥60`
 5. [「墨」](//blog.shuiba.co/bitcron-theme-ink) `2017-07-31` `¥70`
