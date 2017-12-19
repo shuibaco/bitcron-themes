@@ -1,4 +1,4 @@
-## 主题目录&定价
+## 主题价格&说明
 
 1. `170609` `¥50` [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello)
 2. `170721` `¥60` [「庸」(Ordinary)](https://blog.shuiba.co/bitcron-theme-ordinary)
@@ -10,6 +10,6 @@
 8. `171113` `¥70` [「入灰」(inGrey)](https://blog.shuiba.co/bitcron-theme-ingrey)
 9. `171213` `¥60` [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square)
 
-## 付费或捐赠（支付宝）
+## 付费/捐赠（支付宝）
 
 ![alipay QR code](https://raw.githubusercontent.com/shuibaco/bitcron-themes/master/alipay.jpg)
