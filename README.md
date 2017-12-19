@@ -10,6 +10,6 @@
 8. `171113` `¥70` [「入灰」(inGrey)](https://blog.shuiba.co/bitcron-theme-ingrey)
 9. `171213` `¥60` [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square)
 
-## 使用支付宝付费或捐赠
+## 付费或捐赠（支付宝）
 
 ![alipay QR code](https://raw.githubusercontent.com/shuibaco/bitcron-themes/master/alipay.jpg)
