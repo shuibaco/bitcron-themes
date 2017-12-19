@@ -1,4 +1,4 @@
-## 主题目录
+## 主题目录&定价
 
 1. `170609` `¥50` [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello)
 2. `170721` `¥60` [「庸」(Ordinary)](https://blog.shuiba.co/bitcron-theme-ordinary)
