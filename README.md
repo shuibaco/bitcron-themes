@@ -12,4 +12,4 @@
 
 ## 使用支付宝付费或捐赠
 
-![alipay QR code](https://raw.githubusercontent.com/shuibaco/donate/master/alipay.jpg)
+![alipay QR code](https://raw.githubusercontent.com/shuibaco/bitcron-themes/master/alipay.jpg)
