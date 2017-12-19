@@ -1,0 +1,77 @@
+html
+    head
+    	+h.headers
+        +h.load("/template/style.scss")
+        link(href='//fonts.googleapis.com/css?family=Droid Serif', rel='stylesheet')
+
+        block title
+            title= site.title
+    
+    body
+        .wrapper
+            section.search
+                +posts.search_in_html(base_url="/result")
+
+            block content
+
+            header
+                a(href="/")
+                    img(src= site.site_avatar)
+                h1= site.title
+                h2= site.configs.sub_title
+
+            nav
+                +site.just_nav
+
+            aside
+                .sidebar
+                    h3 最新文章
+                    newest_posts = posts.get_recent(10)
+                    ul: for post in newest_posts
+                        li
+                            a(href=post.url)= post.title
+                            span= "%s度" %(post.visits or 0)
+                .sidebar
+                    h3 分门别类
+                    ul: for category in posts.categories
+                        li
+                            a(href=category.url)= category.title
+                            span= "%s篇" %category.posts_count
+                    
+                    h3 友情链接
+                    ul
+                    	li
+                    		a(href="网址") 网站名称
+                    		span= "描述"
+
+            footer
+                span= "© %s %s - " %(site.now.year, site.title)
+                    a(href="/feed")= "%s篇文章等着你订阅" %(d.get_data(types="post", return_count=true, with_page=false))
+                span ♥ 主题
+                    a(href="https://blog.shuiba.co/bitcron-theme-hello") 「你好呀」
+                    | - 由
+                    a(href="https://bitcron.com", target="_blank") Bitcron
+                    | 驱动
+
+
+    +h.back_to_top(label="▲")
+
+    script
+        /* smooth scrolling */
+        $(function() {
+          $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if (target.length) {
+                $('html,body').animate({
+                  scrollTop: target.offset().top
+                }, 500);
+                return false;
+              }
+            }
+          });
+        });
+
+        /* replace search text */
+        document.getElementById("search_posts_keywords").placeholder = "搜索";

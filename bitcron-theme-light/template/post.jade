@@ -1,0 +1,45 @@
+extends index
+
+block title
+	title= post.title + ' - ' + site.title
+
+block content
+	#post
+		time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y/%m/%d')
+		header: h1= post.title
+		#content= post.content
+		#info
+			| &nbsp;
+			if post.category
+				a.cat(href=post.category.url)= post.category.title
+					sup= post.category.posts_count
+			if post.tags: for tag in post.tags
+				a.tag(href='/tag/{{tag}}')= tag
+					sup= d.get_data(types='post', tags=tag, return_count=true, with_page=false)
+			| &nbsp;
+
+		if post.metadata.status not in ['page', 'Page']
+			// 继续阅读使用分类
+			cat_posts = d.get_data(types='post', limit=5, path=post.category.path, excludes=[post.path])
+			if cat_posts
+				#readmore
+					h3 继续阅读
+					for post in cat_posts: div
+						a(href=post.url)= post.title
+							sup= (post.visits or 0)
+			
+			// 继续阅读使用标签
+			// for tag in post.tags
+				tag_posts = d.get_data(types='post', limit=5, tags=tag, excludes=[post.path])
+				if tag_posts
+					#readmore
+						h3 继续阅读
+						for post in tag_posts: div
+							a(href=post.url)= post.title
+								sup= (post.visits or 0)
+
+		if post.metadata.comment not in ['no', 'No', False]
+			hr
+			#comments
+				h3 {{post.comments_count or 0}}条评论
+				+post.comments_as_html()

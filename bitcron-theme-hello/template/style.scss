@@ -1,0 +1,787 @@
+/*
+Theme Name: Hello
+Theme URI: https://blog.shuiba.co/bitcron-theme-hello
+Author: Shuibaco
+Author URI: https://shuiba.co
+MIT License: Copyright (c) 2017 Shuibaco
+*/
+
+$padding: 0 5%;
+$pcolour: #ff0000;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+    color: #bbb;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Mixins ----------------------------------*/
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -ms-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin box-shadow($shadow) {
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+/* Basic ----------------------------------*/
+body {
+    width: 100%;
+    margin: 0 auto;
+    color: #333;
+    background: #f5f5f5;
+    font-family: "Droid Serif", Cambria, "Microsoft Yahei", STXihei, sans-serif;
+    line-height: 2em;
+    text-align: justify;
+    word-wrap: break-word;
+}
+.wrapper {
+    max-width: 800px;
+    background: #fefefe;
+    margin: 0 auto;
+    @include box-shadow(0 0 8px 0 rgba(0, 0, 0, 0.1));
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #444;
+    font-weight: bold;
+    margin: 1em 0 0.5em;
+    line-height: 1em;
+}
+h1 {
+    font-size: 2em;
+    margin: 1.5em 0 1em;
+}
+h2 {
+    font-size: 1.5em;
+    margin: 1em 0 0.8em;
+}
+h3 {
+    font-size: 1.4em;
+    margin: 1.2em 0 0.8em;
+}
+h4 {
+    font-size: 1.2em;
+}
+a {
+    text-decoration: none;
+    @include transition(0.5s);
+    color: #999;
+    &:hover {
+        color: $pcolour;
+    }
+}
+p, figure, pre, blockquote, table, ul, ol, hr {
+    margin-bottom: 1em;
+}
+strong, b {
+    font-weight: bold;
+}
+em, italic {
+    font-style: italic;
+}
+hr {
+    border-bottom: 1px solid #eee;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+blockquote {
+    padding: 0 50px 1em 40px;
+    border-left: 10px solid #ddd;
+    background: #f5f5f5;
+	&::before {
+	    color: #ddd;
+	    content: "\201C";
+	    font-size: 6em;
+	    vertical-align: -0.4em;
+	    margin-left: -33px;
+        line-height: 0;
+	}
+}
+table {
+    background-color: #f5f5f5;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #eee;
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+th, td {
+    border-left: 1px solid #eee;
+    padding: 0.5em 1em;
+    vertical-align: middle;
+    border-top: 1px solid #eee;
+}
+th {
+    font-weight: bold;
+}
+table tbody > tr:nth-child(odd) > td, table tbody > tr:nth-child(odd) > th {
+    background-color: #f9f9f9;
+}
+code {
+    border-bottom: 1px solid #ddd;
+    @include border-radius(4px);
+    padding: 0.1em 0.5em;
+    font-family: consolas, Courier, monospace, sans-serif;
+    font-size: 0.9em;
+    background: #f5f5f5;
+}
+pre {
+    font-family: consolas, Courier, monospace, sans-serif;
+    background: #f5f5f5;
+    overflow: auto;
+    letter-spacing: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: $padding;
+    font-size: 0.9em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+pre code {
+    border-bottom: 0;
+    padding: 0;
+    font-size: inherit;
+}
+pre p, code {
+    margin: 0;
+}
+pre br {
+    display: none;
+}
+sup {
+    vertical-align: super;
+}
+sub {
+    vertical-align: sub;
+}
+sup, sub {
+    font-size: 0.8em;
+    line-height: 0;
+}
+ul {
+    list-style: disc;
+    margin-left: 1em;
+}
+ol {
+    list-style: decimal;
+    margin-left: 1em;
+}
+del {
+    opacity: 0.3;
+}
+::-moz-selection { 
+    background: #000;
+    color: #fff;
+}
+::selection { 
+    background: #000;
+    color: #fff;
+}
+
+/* Search bar ----------------------------------*/
+section.search {
+    input {
+        width: 100%;
+        font-size: 1em;
+        outline: none;
+        display: inline-block;
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        padding: 0.8em 0;
+        background-color: #f5f5f5;
+        @include transition(0.5s);
+        &:hover, &:focus {
+            background-color: inherit;
+        }
+    }
+}
+
+/* Header ----------------------------------*/
+header {
+    margin: 3em 0;
+    text-align: center;
+    img {
+        width: 13%;
+        border: 1px solid #eee;
+        padding: 8px;
+        @include border-radius(50%);
+        @include box-shadow(0 0 15px #eee);
+        @include transition(0.5s);
+        &:hover {
+            @include box-shadow(0 0 20px #ddd);
+        }
+    }
+    h1 {
+        margin: 0.5em;
+        color: #333;
+        text-shadow: 0 0 5px #aaa;
+    }
+    h2 {
+        font-size: 1em;
+        color: #bbb;
+        font-weight: normal;
+    }
+}
+
+/* Nav ----------------------------------*/
+nav {
+    width: 100%;
+    text-align: center;
+    ul {
+        margin: 0;
+        font-size: 0;
+        li {
+            display: inline-block;
+            border-right: 1px solid #eee;
+            border-left: 1px solid #eee;
+            padding: 0 0.3em;
+            margin-right: -1px;
+            margin-bottom: 0.5em;
+            font-size: initial;
+            vertical-align: top;
+            a {
+                width: 1em;
+                display: block;
+                padding: 0.5em 1em;
+                color: #999;
+                line-height: 2em;
+                border-top: 2px solid $pcolour;
+                &:hover {
+                    font-weight: bold;
+                    color: #fff;
+                    background: $pcolour;
+                }
+            }
+        }
+    }
+}
+
+/* Main ----------------------------------*/
+main section.content, article {
+    padding: $padding;
+    h1 {
+        text-align: center;
+        margin-bottom: 0.3em;
+    }
+    .meta {
+        text-align: center;
+        color: #bbb;
+        font-size: 0.8em;
+        margin-bottom: 2em;
+        a {
+            margin: 0 0.3em;
+        }
+    }
+    h2 span {
+        font-size: 0.53em;
+        margin-left: 0.3em;
+        color: #bbb;
+        font-weight: normal;
+    }
+    h2:before {
+        content: "# ";
+        color: $pcolour;
+    }
+    h3:before {
+        content: "## ";
+        color: $pcolour;
+    }
+    h4:before {
+        content: "### ";
+        color: $pcolour;
+    }
+    ul span {
+        font-size: 0.8em;
+        margin-left: 0.3em;
+    }
+    ul time {
+        margin-right: 0.3em;
+    }
+    .info span {
+        margin: 0 0 2em;
+        border: 1px solid #eee;
+        padding: 15px 20px;
+        color: #bbb;
+        display: block;
+    }
+}
+article {
+    padding-left: 0;
+    padding-right: 0;
+    h1, h2, h3, h4, h5, h6, p, dl, legend, ul, ol {
+        padding: $padding;
+    }
+    ul p, ol p {
+        padding: 0;
+        margin: 0 auto;
+    }
+    blockquote p, blockquote ul, blockquote ol {
+    	padding: 0;
+    }
+    hr {
+    	margin: 1em 5%;
+    }
+    figure {
+        text-align: center;
+        img {
+            max-width: 100%;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        figcaption {
+            font-size: 0.8em;
+            color: #bbb;
+            margin-top: -5px;
+            margin-bottom: 1em;
+            padding: $padding;
+            line-height: 1.8em;
+        }
+    }
+    img {
+    	max-width: 100%;
+    }
+    iframe, embed {
+        width: 100%;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        margin: 1em 0;
+    }
+    .post a {
+        border-bottom: 1px solid;
+        padding: 3px;
+    }
+    .post sup, .post sub {
+        a {
+            border-bottom: 0;
+            padding: 0;
+            &::before {
+                content: "[";
+            }
+            &::after {
+                content: "]";
+            }
+        }
+    }
+    & .toc {
+        margin: 0 5% 2em;
+        border: 1px solid #eee;
+        padding: 15px 20px 0;
+        ul {
+            list-style: circle;
+            padding: 0;
+            color: #bbb;
+            margin-left: 1em;
+        }
+        a {
+            border-bottom: none;
+        }
+    }
+    ul, ol {
+    	color: inherit;
+    	margin-left: 2em;
+    }
+    ul ul, ol ol, ul ol, ol ul {
+    	margin-bottom: 0;
+    	padding: 0;
+    }
+    & .footnotes {
+    	ul, ol {
+    		margin-left: 1em;
+    		color: #bbb;
+    	}
+    }
+    ul span {
+    	font-size: inherit;
+    	margin-left: inherit;
+    }
+}
+
+/* Paginator ----------------------------------*/
+section.pager {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    overflow: hidden;
+    margin: 2em 0 0;
+    .full_paginator.full_pager a {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    a {
+        padding: 1em 0;
+        display: inline-block;
+        &.current {
+            color:$pcolour;
+        }
+        &:hover {
+            background: #f5f5f5;
+        }
+    }
+    a.pre, span.pre {
+        float: left;
+        text-align: left;
+        width: 45%;
+        padding-left: 5%;
+        &::before {
+            content: "\2039";
+            font-size: 1.3em;
+            padding-right: 5px;
+            font-weight: bold;
+            line-height: 1em;
+        }
+    }
+    a.next, span.next {
+        float: right;
+        text-align: right;
+        width: 45%;
+        padding-right: 5%;
+        &::after {
+            content: "\203A";
+            font-size: 1.3em;
+            padding-left: 5px;
+            font-weight: bold;
+            line-height: 1em;
+        }
+    }
+    span {
+        color: #bbb;
+        padding: 1em 0;
+    }
+    .paginator a {
+        padding: 1em 0.5em;
+    }
+}
+
+/* Comments ----------------------------------*/
+section#comments {
+    padding: $padding;
+    background: #f5f5f5;
+    border-bottom: 1px solid #eee;
+    padding-top: 0.5em;
+}
+.doc_comments {
+    margin-top: 0!important;
+    padding: 0!important;
+}
+.doc_comments .comments_block_title {
+    display: none;
+}
+.doc_comments #new_comment_form .comment_trigger .trigger_title {
+    margin-left: 62px!important;
+    line-height: 48px!important;
+}
+.doc_comments #new_comment_form {
+    background-color: inherit!important;
+    border: 0!important;
+    margin: 15px 0!important;
+}
+.doc_comments #new_comment_form .input_body {
+    background-color: inherit!important;
+    border-top: 1px solid #eee;
+}
+.doc_comments #new_comment_form textarea, .doc_comments #new_comment_form .comment_trigger, .doc_comments #new_comment_form .input_body {
+    padding: 0!important;
+}
+.doc_comments #new_comment_form .input_body li input {
+    padding-left: 0!important;
+    padding-right: 1em!important;
+}
+.doc_comments #new_comment_form .input_body li {
+    margin-top: 8px!important;
+}
+.doc_comments #new_comment_form .comment_submit_button {
+    margin: 8px 0!important;
+    border-radius: 0!important;
+    cursor: pointer;
+}
+
+/* Comment list */
+.doc_comments .comments ul {
+    margin: 0;
+}
+.doc_comments .comments .comment {
+    padding: 0!important;
+    background-color: inherit!important;
+    margin: 0!important;
+    border-radius: 0!important;
+    border: 0!important;
+    border-top: 1px solid #eee!important;
+}
+.doc_comments .comments .comment .author {
+    padding: 1em 0 0!important;
+}
+.doc_comments .comments .comment .author .author-name {
+    float: left;
+}
+.doc_comments .comments .comment .author b {
+    background-color: inherit!important;
+    color: #999!important;
+    @include transition(0.5s);
+    margin-left: 62px!important;
+    font-size: 0.9em!important;
+    font-weight: bold!important;
+    &:hover {
+        color: #ff0000!important;
+    }
+}
+.doc_comments .comments .comment .author .reply {
+    font-size: 0.75em!important;
+    background: inherit!important;
+    color: transparent!important;
+    @include transition(0.5s);
+    &::before {
+        content: "\56DE \590D";
+        color: #fff;
+        margin-right: -2em;
+        background: #ddd;
+        padding: 3px 4px 2px;
+    }
+}
+.doc_comments .comments .comment .author small {
+    float: left;
+    margin: 0!important;
+    color: #ccc;
+    padding-top: 4px;
+    font-size: 0.8em;
+}
+.doc_comments .comments .comment .author .avatar, .doc_comments #new_comment_form .comment_trigger .avatar {
+    width: 48px!important;
+    height: 48px!important;
+    img {
+        border-radius: 5%!important;
+    }
+}
+.doc_comments .comments .comment .author .avatar {
+    top: 1em!important;
+}
+.doc_comments .comments .comment .p_part {
+    margin: 0 0 0.7em!important;
+}
+.doc_comments .comments .comment .comment_content {
+    color: #333;
+    margin-left: 62px;
+    margin-top: 21px;
+}
+.doc_comments .comments .sub_comments {
+    padding-left: 62px!important;
+    .sub_comments .sub_comments {
+        padding-left: 0!important;
+    }
+}
+
+/* Sidebar ----------------------------------*/
+aside {
+    overflow: hidden;
+    padding: $padding;
+    margin-top: 2em;
+    background: #f5f5f5;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    & .sidebar {
+        width: 50%;
+        float: left;
+    }
+    span {
+        font-size: 0.8em;
+        margin-left: 0.3em;
+        color: #bbb;
+    }
+}
+
+/* Footer ----------------------------------*/
+footer {
+    text-align: center;
+    padding: 0.8em;
+    font-size: 0.8em;
+    line-height: 3em;
+    color: #bbb;
+}
+
+/* Others ----------------------------------*/
+#back_to_top {
+    background: #fff;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    span {
+        color: #ccc;
+    }
+}
+
+/* Responsive ----------------------------------*/
+@media only screen and (max-width : 600px) {
+    aside .sidebar {
+        width: 100%;
+        float: none;
+    }
+    header img {
+        width: 23%;
+    }
+    footer span {
+        display: block;
+        line-height: 1.5em;
+    }
+    pre, main section.content, section#disqus_thread, aside {
+        padding: $padding;
+    }
+    pre {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    article {
+        h1, h2, h3, h4, h5, h6, p, dl, legend, ul, ol {
+            padding: $padding;
+        }
+    }
+    blockquote {
+    	padding: 0 25px 1em 20px;
+    	border-left: 5px solid #ddd;
+    	&::before {
+    		margin-left: -20px;
+    	}
+    }
+    .doc_comments .comments .comment .author .avatar, .doc_comments #new_comment_form .comment_trigger .avatar {
+        width: 36px!important;
+        height: 36px!important;
+    }
+    .doc_comments .comments .comment .comment_content, .doc_comments #new_comment_form .comment_trigger .trigger_title, .doc_comments .comments .comment .author b {
+        margin-left: 48px!important;
+    }
+    .doc_comments .comments .comment .p_part {
+        font-size: 0.95em;
+        line-height: 2em;
+    }
+    .doc_comments .comments .sub_comments {
+        padding-left: 48px!important;
+        .sub_comments {
+            padding-left: 0!important;
+        }
+    }
+}
+
+/* Syntax highlighter by Pygments ----------------------------------*/
+.codehilite .c { color: #999999 } /* Comment */
+.codehilite .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.codehilite .k { color: #8B008B; font-weight: bold } /* Keyword */
+.codehilite .n { color: #555555 } /* Name */
+.codehilite .o { color: #555555 } /* Operator */
+.codehilite .p { color: #555555 } /* Punctuation */
+.codehilite .cm { color: #999999 } /* Comment.Multiline */
+.codehilite .cp { color: #1e889b } /* Comment.Preproc */
+.codehilite .c1 { color: #999999 } /* Comment.Single */
+.codehilite .cs { color: #8B008B; font-weight: bold } /* Comment.Special */
+.codehilite .gd { color: #aa0000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #aa0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00aa00 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #555555 } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #aa0000 } /* Generic.Traceback */
+.codehilite .kc { color: #8B008B; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #8B008B; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #8B008B; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #8B008B; font-weight: bold } /* Keyword.Pseudo */
+.codehilite .kr { color: #8B008B; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #a7a7a7; font-weight: bold } /* Keyword.Type */
+.codehilite .m { color: #B452CD } /* Literal.Number */
+.codehilite .s { color: #CD5555 } /* Literal.String */
+.codehilite .na { color: #658b00 } /* Name.Attribute */
+.codehilite .nb { color: #658b00 } /* Name.Builtin */
+.codehilite .nc { color: #008b45; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #00688B } /* Name.Constant */
+.codehilite .nd { color: #707a7c } /* Name.Decorator */
+.codehilite .ni { color: #555555 } /* Name.Entity */
+.codehilite .ne { color: #008b45; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #008b45 } /* Name.Function */
+.codehilite .nl { color: #555555 } /* Name.Label */
+.codehilite .nn { color: #008b45; text-decoration: underline } /* Name.Namespace */
+.codehilite .nx { color: #555555 } /* Name.Other */
+.codehilite .py { color: #555555 } /* Name.Property */
+.codehilite .nt { color: #8B008B; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #00688B } /* Name.Variable */
+.codehilite .ow { color: #8B008B } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #B452CD } /* Literal.Number.Bin */
+.codehilite .mf { color: #B452CD } /* Literal.Number.Float */
+.codehilite .mh { color: #B452CD } /* Literal.Number.Hex */
+.codehilite .mi { color: #B452CD } /* Literal.Number.Integer */
+.codehilite .mo { color: #B452CD } /* Literal.Number.Oct */
+.codehilite .sb { color: #CD5555 } /* Literal.String.Backtick */
+.codehilite .sc { color: #CD5555 } /* Literal.String.Char */
+.codehilite .sd { color: #CD5555 } /* Literal.String.Doc */
+.codehilite .s2 { color: #CD5555 } /* Literal.String.Double */
+.codehilite .se { color: #CD5555 } /* Literal.String.Escape */
+.codehilite .sh { color: #1c7e71; font-style: italic } /* Literal.String.Heredoc */
+.codehilite .si { color: #CD5555 } /* Literal.String.Interpol */
+.codehilite .sx { color: #cb6c20 } /* Literal.String.Other */
+.codehilite .sr { color: #1c7e71 } /* Literal.String.Regex */
+.codehilite .s1 { color: #CD5555 } /* Literal.String.Single */
+.codehilite .ss { color: #CD5555 } /* Literal.String.Symbol */
+.codehilite .bp { color: #658b00 } /* Name.Builtin.Pseudo */
+.codehilite .vc { color: #00688B } /* Name.Variable.Class */
+.codehilite .vg { color: #00688B } /* Name.Variable.Global */
+.codehilite .vi { color: #00688B } /* Name.Variable.Instance */
+.codehilite .il { color: #B452CD } /* Literal.Number.Integer.Long */

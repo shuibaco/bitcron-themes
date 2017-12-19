@@ -1,0 +1,32 @@
+html
+	head
+		+h.headers
+		+h.load('/template/style.scss')
+
+		block title
+			title= site.title
+
+	body(style='background-image:url({{site.background_image}})')
+		.wrapper
+
+			block content
+				article
+					for post in posts
+						header.title
+							h1= post.date.format('%x')
+						.content= post.content
+						.info
+							span 归档于
+							a(href=post.category.url)= post.category.title
+
+				+h.paginator(pre_label='‹',  next_label='›')
+
+			footer 
+				div= '© %s %s' %(site.now.year, site.title)
+				div 主题
+					a(href='https://blog.shuiba.co/bitcron-theme-diary', target='_blank') 「日记」
+					span 由&nbsp;
+						a(href='https://bitcron.com', target='_blank') Bitcron
+						|驱动
+
+	+h.back_to_top(label="▲")

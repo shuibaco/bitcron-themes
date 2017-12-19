@@ -1,0 +1,43 @@
+extends index
+
+block title
+	title= post.title + ' • ' + site.title
+
+block header
+	h1= post.title
+	ul#info
+		li
+			i.fa.fa-calendar-check-o
+			time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y.%m.%d')
+		if post.category: li
+			i.fa.fa-folder-open
+			a(href=post.category.url)= post.category.title
+		if post.tags: li
+			i.fa.fa-tags
+			for tag in post.tags
+				a.tag(href='/tag/{{tag}}')= tag
+		li
+			i.fa.fa-font
+			span= ('{0:,}'.format(post.text_words)) + '字'
+		li
+			i.fa.fa-eye
+			span= ('{0:,}'.format(post.visits or 0))
+		if post.metadata.comment not in ['no', 'No', False]
+			li
+				i.fa.fa-comments
+				span: a(href='#comments')= ('{0:,}'.format(post.comments_count or 0))
+
+block content
+	#content= post.content
+
+	if post.metadata.comment not in ['no', 'No', False]
+		#comments
+			+post.comments_as_html()
+
+block footer
+	span &copy; {{site.now.year}} {{site.title}}
+	span= '%s篇文章' %(d.get_data(types='post', return_count=true, with_page=false)) + ' %s字' %('{0:,}'.format(site.text_words))
+	span
+		a(href='https://blog.shuiba.co/bitcron-theme-ingrey', target='_blank') 「入灰」
+		| on
+		a(href='https://bitcron.com', target='_blank') Bitcron
