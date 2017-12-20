@@ -1,4 +1,4 @@
-![screenshot.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-ordinary/master/screenshot.jpg)
+![screenshot.jpg](screenshot.jpg)
 
 ## 配色方案
 
@@ -12,7 +12,7 @@ $scolor: #bbb;
 $tcolor: #888;
 ```
 
-![yellow.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-ordinary/master/colours/yellow.jpg)
+![yellow.jpg](colours/yellow.jpg)
 
 ### 单色 Mono
 
@@ -24,7 +24,7 @@ $scolor: #aab7c4;
 $tcolor: #8592a0;
 ```
 
-![mono.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-ordinary/master/colours/mono.jpg)
+![mono.jpg](colours/mono.jpg)
 
 ### 夏日 Summer
 
@@ -36,7 +36,7 @@ $scolor: #b7a9a3;
 $tcolor: #7c6e66;
 ```
 
-![summer.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-ordinary/master/colours/summer.jpg)
+![summer.jpg](colours/summer.jpg)
 
 ### 入夜 Night
 
@@ -48,7 +48,7 @@ $scolor: #515466;
 $tcolor: #7b7d91;
 ```
 
-![night.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-ordinary/master/colours/night.jpg)
+![night.jpg](colours/night.jpg)
 
 ### 纯净 Pure
 
@@ -60,4 +60,4 @@ $scolor: #bcbbb8;
 $tcolor: #a5a4a2;
 ```
 
-![pure.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-ordinary/master/colours/pure.jpg)
+![pure.jpg](colours/pure.jpg)
