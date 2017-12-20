@@ -1,5 +1,7 @@
 ## 关于
 
+这里是[水八口](https://shuiba.co)设计并编写的[Bitcron](https://bitcron.com)主题集合，如果没有意外，将会一直更新下去，欢迎★。
+
 | 序号 | 主题说明 | 发布时间 | 价格
 | --- | --- | --- | --- |
 | 1 | [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello) | 2017-06-09 | ¥50
