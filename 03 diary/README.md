@@ -1,4 +1,4 @@
-![screenshot.jpg](https://raw.githubusercontent.com/shuibaco/bitcron-theme-diary/master/screenshot.jpg)
+![screenshot.jpg](screenshot.jpg)
 
 ## 开始写日记吧
 
