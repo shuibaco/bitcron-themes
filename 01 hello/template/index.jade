@@ -57,7 +57,7 @@ html
     +h.back_to_top(label="▲")
 
     script
-        /* smooth scrolling */
+        // smooth scrolling
         $(function() {
           $('a[href*=#]:not([href=#])').click(function() {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -73,5 +73,5 @@ html
           });
         });
 
-        /* replace search text */
+        // replace search text
         document.getElementById("search_posts_keywords").placeholder = "搜索";
