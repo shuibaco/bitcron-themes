@@ -14,4 +14,4 @@
 
 ## 付费/捐赠（支付宝）
 
-![alipay QR code](https://raw.githubusercontent.com/shuibaco/bitcron-themes/master/alipay.jpg)
+![alipay QR code](alipay.jpg)
