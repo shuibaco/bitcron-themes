@@ -17,7 +17,10 @@ $link-color: #ccc;
 $hover-color: #333;
 $bg-color: #f8f8f8;
 $border-color: #eee;
-/* nav background */
+/* nav */
+$square-height: 252px;
+$square-height-800: 230px;
+$square-height-600: 117px;
 $nav-bg: url(/site_avatar.png);
 $nav-bg-size: 250px;
 $nav-bg-opacity: 0.1;
@@ -396,7 +399,7 @@ nav {
 				@include justify-content(center);
 				text-align: center;
 				@extend .square;
-				height: 252px;
+				height: $square-height;
 				position: relative;
 				overflow: hidden;
 				&:hover {
@@ -720,7 +723,7 @@ footer {
 		}
 	}
 	nav ul li a {
-		height: 230px;
+		height: $square-height-800;
 	}
 }
 @media only screen and (max-width : 600px) {
@@ -731,7 +734,7 @@ footer {
 	nav ul li {
 		margin-top: 8px;
 		a {
-			height: 117px;
+			height: $square-height-600;
 			font-size: $font-size*0.8;
 			line-height: 1.5em;
 		}
