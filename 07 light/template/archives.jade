@@ -5,20 +5,6 @@ block title
 
 block content
 	#postlist
-		if posts.categories
-			#catlist
-				header: h2 按分类
-				for category in posts.categories: .block
-					a(href=category.url)= category.title
-						sup= category.posts_count
-
-		if site.tags
-			#taglist
-				header: h2 按标签
-				for tag_name, tag_count in site.tags: .block
-					a(href='/tag/{{tag_name}}')= tag_name
-						sup= tag_count				
-
 		#archlist
 			header: h2 按年份
 			oldest_post = d.get_data(types='post', return_one=true, sort='asc')
@@ -33,3 +19,17 @@ block content
 					.block
 						a(href='/archive/{{year}}')= year + '年'
 							sup= yearly_count
+
+		if posts.categories
+			#catlist
+				header: h2 按分类
+				for category in posts.categories: .block
+					a(href=category.url)= category.title
+						sup= category.posts_count
+
+		if site.tags
+			#taglist
+				header: h2 按标签
+				for tag_name, tag_count in site.tags: .block
+					a(href='/tag/{{tag_name}}')= tag_name
+						sup= tag_count
