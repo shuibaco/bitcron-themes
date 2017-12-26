@@ -110,6 +110,9 @@ ul, ol {
 	margin: 1em 0;
 	padding-left: 2em;
 	padding-right: 1em;
+	p {
+		margin: 0!important;
+	}
 }
 ul ul, ul ol, ol ol, ol ul {
 	margin: 0!important;
@@ -239,9 +242,6 @@ sup {
 }
 
 /* Special edit for Bitcron */
-ul p, ol p {
-	margin: 0;
-}
 .fa-spin {
 	color: $link-color;
 }
