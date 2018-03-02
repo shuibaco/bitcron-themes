@@ -13,6 +13,7 @@
 | 7 | [「淡泊」(Light)](https://blog.shuiba.co/bitcron-theme-light) | 2017-10-24 | ¥60
 | 8 | [「入灰」(inGrey)](https://blog.shuiba.co/bitcron-theme-ingrey) | 2017-11-13 | ¥70
 | 9 | [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square) | 2017-12-13 | ¥60
+| 10 | [「卡片」(Card)](https://blog.shuiba.co/bitcron-theme-card) | 2018-03-03 | ¥70
 
 ## 付费/捐赠（支付宝）
 
