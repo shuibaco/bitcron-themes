@@ -1,0 +1,99 @@
+html
+	head
+		block title
+			if request.path.startswith('/category/') and posts.category
+				title= '分类：' + posts.category.title + ' • ' + site.title
+			elif request.path.startswith('/tag/') and posts.tags
+				title= '标签：' + tag + ' • ' + site.title
+			elif request.args.s
+				title= '搜索：' + request.args.s + ' • ' + site.title
+			elif site.configs.sub_title
+				title= site.title + ' • ' + site.configs.sub_title
+			else
+				title= site.title
+
+		+h.headers
+		+h.load('/template/style.scss')
+		link(rel='apple-touch-icon', href=site.site_avatar)
+
+	body
+		aside.sidebar
+			h1: a#logo(href='/')
+				img(src=site.site_avatar, alt=site.title)
+				#name= site.title
+			#intro
+				| 80后，旅日福州人。文中常出现的豆哥/石页先生是我的灵魂伴侣。兴趣广泛，无一精通。联系我请爬梯留言于Disqus，或发邮件至hi#shuiba.co。
+			#social
+				+site.socials
+			nav#navi
+				+posts.search_in_html(placeholder='搜索')
+				+site.just_nav
+
+		header
+			block header
+				a#second-logo(href='/')
+					img(src=site.site_avatar, alt=site.title)
+					span= site.title
+				if request.path.startswith('/category/') and posts.category
+					if posts.category.cover
+						.bg(style='background:#eee url({{posts.category.cover}}) center;background-size:cover;')
+					else
+						.bg(style='background:#eee url({{site.background_image}}) center;background-size:cover;')
+				else
+					.bg(style='background:#eee url({{site.background_image}}) center;background-size:cover;')
+
+		main
+			block main
+				if request.path.startswith('/category/') and posts.category
+					.sub-title= '分类：' + posts.category.title
+				elif request.path.startswith('/tag/') and posts.tags
+					.sub-title= '标签：' + posts.tags.join('+')
+				elif request.args.s
+					.sub-title= '搜索关键字：' + request.args.s
+				
+				#cardlist
+					for post in posts
+						a.card(href=post.url)
+							if post.cover
+								.summary-bg: span= post.content.limit(words=350, keep_images=False).plain
+							else
+								.summary: span= post.content.limit(words=350, keep_images=False).plain
+							.banner
+								.small
+									time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%B %d, %Y')
+									| ×
+									span= ('{0:,}'.format(post.text_words)) + '字'
+								h2= post.title
+							.card-bg(style='background:#eee url({{post.cover}}) center;background-size:cover;')
+
+				#pager
+					+h.paginator(style='auto', max_count='8')
+
+		footer
+			div.oh
+				if site.configs.admin_name
+					| &copy; {{site.now.year}} {{site.configs.admin_name}}.
+				else
+					| &copy; {{site.now.year}} {{site.title}}.
+			div.oh
+				| Powered by <a href='https://bitcron.com', target='_blank'>Bitcron</a>. Theme <a href='https://blog.shuiba.co/bitcron-theme-card' target='_blank'>Card</a> by <a href='https://shuiba.co', target='_blank'>Shuibaco</a>.
+
+		+h.auto_sidebar(side='right', width=375)
+		+h.back_to_top(label='↾')
+
+		script
+			// smooth scrolling
+			$(function() {
+				$('a[href*=#]:not([href=#])').click(function() {
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html,body').animate({
+								scrollTop: target.offset().top-20
+							}, 500);
+							return false;
+						}
+					}
+				});
+			});

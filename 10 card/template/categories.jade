@@ -1,0 +1,25 @@
+extends index
+
+block title
+	title= '分类 • ' + site.title
+
+block main
+	#cats
+		span.sub-title= '共有%s个分类' %(d.get_data(types='folder', return_count=true, level=1, min_posts_count=1, render=true))
+		for category in posts.categories
+			a.card(href=category.url)
+				if category.cover and category.content
+					.summary-bg: span= category.content.plain
+				else
+					.summary: span= category.content.plain
+				.banner
+					.small 共有{{category.posts_count}}篇文章
+					h2= category.title
+				.card-bg(style='background:#eee url({{category.cover}}) center;background-size:cover;')
+
+	if site.tags
+		#tags
+			span.sub-title= '共有%s个标签' %site.tags.length
+			for tag_name, tag_count in site.tags
+				a(href='/tag/{{tag_name}}')= tag_name
+					span= '%s' %tag_count

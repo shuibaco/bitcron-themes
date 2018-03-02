@@ -1,0 +1,76 @@
+extends index
+
+block title
+	title= post.title + ' • ' + site.title
+
+block header
+	a#second-logo(href='/')
+		img(src=site.site_avatar, alt=site.title)
+		span= site.title
+	if post.cover
+		.bg(style='background:#eee url({{post.cover}}) center;background-size:cover;')
+	else
+		.bg(style='background:#eee url({{site.background_image}}) center;background-size:cover;')
+
+block main
+	#post
+		#title
+			.small
+				time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%B %d, %Y')
+				| ×
+				span= ('{0:,}'.format(post.text_words)) + '字'
+				| ×
+				span= ('{0:,}'.format(post.visits or 0)) + '阅'
+			h1= post.title
+		#post-content= post.content
+		if post.tags
+			#tag
+				for tag in post.tags
+					a(href='/tag/{{tag}}')= tag
+
+	if post.metadata.status not in ['page', 'Page']
+		#readmore
+			if posts.previous_one
+				a.card.pre(href=posts.previous_one.url)
+					if posts.previous_one.cover
+						.summary-bg: span= posts.previous_one.content.limit(words=350, keep_images=False).plain
+					else
+						.summary: span= posts.previous_one.content.limit(words=350, keep_images=False).plain
+					.banner
+						.small
+							span.tip 新
+							time(datetime= posts.previous_one.date.format('%Y-%m-%d'))= posts.previous_one.date.format('%B %d, %Y')
+							| ×
+							span= ('{0:,}'.format(posts.previous_one.text_words)) + '字'
+						h2= posts.previous_one.title
+					.card-bg(style='background:#eee url({{posts.previous_one.cover}}) center;background-size:cover;')
+			
+			if posts.next_one
+				a.card.next(href=posts.next_one.url)
+					if posts.next_one.cover
+						.summary-bg: span= posts.next_one.content.limit(words=350, keep_images=False).plain
+					else
+						.summary: span= posts.next_one.content.limit(words=350, keep_images=False).plain
+					.banner
+						.small
+							span.tip 旧
+							time(datetime= posts.next_one.date.format('%Y-%m-%d'))= posts.next_one.date.format('%B %d, %Y')
+							| ×
+							span= ('{0:,}'.format(posts.next_one.text_words)) + '字'
+						h2= posts.next_one.title
+					.card-bg(style='background:#eee url({{posts.next_one.cover}}) center;background-size:cover;')
+
+			if post.category
+				a.card(href=post.category.url)
+					if post.category.cover and post.category.content
+						.summary-bg: span= post.category.content.plain
+					else
+						.summary: span= post.category.content.plain
+					.banner
+						.small 归档于包含{{post.category.posts_count}}篇文章的分类
+						h2= post.category.title
+					.card-bg(style='background:#eee url({{post.category.cover}}) center;background-size:cover;')
+
+	if post.metadata.comment not in ['no', 'No', False]
+		#comments
+			+post.comments_as_html()
