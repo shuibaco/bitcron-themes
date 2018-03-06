@@ -11,7 +11,7 @@ block main
 
 		#archlist
 			span.total-count= '共写了%s篇文章，' %(d.get_data(types='post', return_count=true, with_page=false)) + '总计%s字。' %('{0:,}'.format(site.text_words))
-			entries = d.get_data(types='post', limit=8, sort='desc').group('-date:year')
+			entries = d.get_data(types='post', limit=20, sort='desc').group('-date:year')
 			for year, year_posts in entries
 				year_start_date = '%s-1-1' %year
 				year_end_date = '%s-1-1' %(year.int+1)
