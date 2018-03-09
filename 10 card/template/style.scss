@@ -437,13 +437,14 @@ aside.sidebar {
 /* Header ---------------------------------*/
 header {
 	height: 50vh;
-	padding: 23px 20px;
+	padding: 20px;
 	box-sizing: border-box;
 	a#second-logo {
 		border: none;
 		color: #fff;
 		img {
-			width: 35px;
+			width: 34px;
+			padding: 4px 0;
 			vertical-align: middle;
 			border-radius: 100%;
 			margin-right: 4px;
