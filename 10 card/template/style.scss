@@ -488,7 +488,7 @@ main {
 		color: #fff;
 		margin-top: calc(-24px - 1em + 10px);
 		position: absolute;
-		left: calc(calc(100% - 800px)/2);
+		left: calc(calc(100% - #{$max-width})/2);
 		white-space: nowrap;
 		overflow: hidden;
 		line-height: 1.5em;
