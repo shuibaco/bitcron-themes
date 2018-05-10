@@ -15,9 +15,15 @@
 | 9 | [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square) | 2017-12-13 | ¥60
 | 10 | [「卡片」(Card)](https://blog.shuiba.co/bitcron-theme-card) | 2018-03-03 | ¥70
 
-## 付费/捐赠（支付宝）
+## 付费/捐赠
+
+### 支付宝
 
 ![alipay QR code](alipay.jpg)
+
+### PayPal
+
+paypal.me/shuibaco
 
 ## 版权声明
 
