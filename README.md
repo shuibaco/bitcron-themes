@@ -23,7 +23,7 @@
 
 ### PayPal
 
-paypal.me/shuibaco
+[paypal.me/shuibaco](https://www.paypal.me/shuibaco)
 
 ## 版权声明
 
