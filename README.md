@@ -1,6 +1,6 @@
 ## 关于
 
-这里是由[水八口](https://shuiba.co)原创设计并编写的[Bitcron](https://bitcron.com)主题集合，欢迎查看学习、购买使用。购买时若告知网站地址，我会将链接添加至相应的主题说明页面。
+这里是由[水八口](https://shuiba.co)原创设计并编写的[Bitcron](https://bitcron.com)主题集合，欢迎查看学习、购买使用。
 
 | 序号 | 主题说明 | 发布时间 | 价格
 | --- | --- | --- | --- |
@@ -15,9 +15,15 @@
 | 9 | [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square) | 2017-12-13 | ¥60
 | 10 | [「卡片」(Card)](https://blog.shuiba.co/bitcron-theme-card) | 2018-03-03 | ¥70
 
-## 付费/捐赠（支付宝）
+## 付费/捐赠
+
+### 支付宝
 
 ![alipay QR code](alipay.jpg)
+
+### PayPal
+
+[paypal.me/shuibaco](https://www.paypal.me/shuibaco)
 
 ## 版权声明
 
