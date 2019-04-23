@@ -14,6 +14,7 @@
 | 8 | [「入灰」(inGrey)](https://blog.shuiba.co/bitcron-theme-ingrey) | 2017-11-13 | ¥70
 | 9 | [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square) | 2017-12-13 | ¥60
 | 10 | [「卡片」(Card)](https://blog.shuiba.co/bitcron-theme-card) | 2018-03-03 | ¥70
+| 11 | [「界」(Border)](https://blog.shuiba.co/bitcron-theme-border) | 2019-04-23 | ¥60
 
 ## 付费/捐赠
 
