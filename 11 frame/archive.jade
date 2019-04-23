@@ -1,0 +1,26 @@
+extends index
+
+block title
+	title= '归档 - ' + site.title
+
+block main
+	#archive
+		entries = d.get_data(types='post', limit=20, sort='desc').group('-date:year')
+		for year, year_posts in entries
+			year_start_date = '%s-1-1' %year
+			year_end_date = '%s-1-1' %(year.int+1)
+			yearly_count = d.get_data(types='post', return_count=true, date_start=year_start_date, date_end=year_end_date)
+			
+			#label-title
+				h2= year + '年'
+				span= '%s' %yearly_count
+
+			#post-list	
+				ul: for post in year_posts
+					li: a(href=post.url)
+						span= ('{0:,}'.format(post.visits or 0)) + '°'
+						time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%b %d')
+						h3= post.title
+
+		#pager
+			+h.paginator(style='auto', max_count='8')

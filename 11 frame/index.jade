@@ -1,0 +1,89 @@
+html
+	head
+		block title
+			if site.configs.sub_title
+				title= site.title + ' - ' + site.configs.sub_title
+			else
+				title= site.title
+
+		+h.headers
+		+h.load('/template/style.scss')
+		link(rel='apple-touch-icon', href=site.site_avatar)
+
+	body
+		header
+			nav
+				+site.just_nav
+				+posts.search_in_html(placeholder='搜索', base_url='/search')
+			#logo
+				a(href='/')
+					img(src=site.site_avatar, alt=site.title)
+
+		main
+			block main
+				#contents
+					recent_posts = posts.get_recent(6)
+					for post in recent_posts
+						article: a(href=post.url)
+							span= ('{0:,}'.format(post.visits or 0)) + '°'
+							time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%b %d, %Y')
+							h2= post.title
+							if post.cover
+								#thumbnail(style='background-image:url({{post.cover}})')
+							#summary= post.content.limit(words=120).no_pic.plain
+
+		aside
+			#aside
+				if posts.categories
+					#categories
+						.cat-title
+							span 分类
+						.cat-list
+							for category in posts.categories
+								a(href=category.url)= category.title
+									span= category.posts_count
+				
+				if site.tags	
+					#tags
+						.tag-title
+							span 标签
+						.tag-list
+							for tag_name, tag_count in site.tags
+								a(href='/tag/{{tag_name}}')= tag_name
+									span= '%s' %tag_count
+
+		footer
+			+site.socials
+
+			#credit
+				if site.configs.admin_name
+					| &copy; {{site.now.year}} {{site.configs.admin_name}}.
+				else
+					| &copy; {{site.now.year}} {{site.title}}.
+			
+			#siteinfo
+				span= '%s篇文章' %(d.get_data(types='post', return_count=true, with_page=false))
+				span= '%s字' %('{0:,}'.format(site.text_words))
+			
+			#poweredby
+				| Powered by <a href='https://bitcron.com', target='_blank'>Bitcron</a>. Theme <a href='https://blog.shuiba.co/bitcron-theme-frame' target='_blank'>Frame</a> by <a href='https://shuiba.co', target='_blank'>Shuibaco</a>.
+
+
+		+h.back_to_top(label='↾')
+
+		script
+			// smooth scrolling
+			$(function() {
+				$('a[href*=#]:not([href=#])').click(function() {
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html,body').animate({
+								scrollTop: target.offset().top-20
+							}, 500);
+							return false;
+						}
+					}
+				});
+			});
