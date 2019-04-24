@@ -6,7 +6,7 @@ block title
 	elif request.path.startswith('/tag/') and posts.tags
 		title= '标签：' + posts.tags.join('+') + ' - ' + site.title
 	elif request.args.s
-		title= '搜索：' + request.args.s + ' - ' + site.title
+		title= '搜索关键字：' + request.args.s + ' - ' + site.title
 	else
 		title= site.title
 
@@ -14,17 +14,17 @@ block main
 	#cat-tag-search
 		#label-title
 			if request.path.startswith('/category/') and posts.category
-				h2= posts.category.title
+				h2= '分类：' + posts.category.title
 				span= posts.category.posts_count
 			
 			elif request.path.startswith('/tag/') and posts.tags
-				h2= posts.tags.join('+')
+				h2= '标签：' + posts.tags.join('+')
 				tag = request.url | replace('https://'+site.domain+'/tag/','')
 				span= d.get_data(types='post', tags=tag, return_count=true, with_page=false)
 			
 			elif request.args.s
-				h2= request.args.s
-				span= '关键字'
+				h2= '搜索关键字：' + request.args.s
+				span= d.get_data(types='post', keywords=request.args.s, return_count=true, with_page=false)
 
 		#post-list
 			ul: for post in posts
