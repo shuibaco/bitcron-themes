@@ -17,6 +17,9 @@ block main
 					a(href='/tag/{{tag}}')= tag
 				| •
 			i= ('{0:,}'.format(post.text_words)) + '字'
+			if post.metadata.comment not in ['no', 'No', False]
+				| •
+				a(href='#comment')= ('{0:,}'.format(post.comments_count or 0)) + '条评论'
 		h1= post.title
 		post.content
 		#eof
