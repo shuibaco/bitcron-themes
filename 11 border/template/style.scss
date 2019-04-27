@@ -534,10 +534,11 @@ main {
 	/*archive category tag search*/
 	#archive, #cat-tag-search {
 		#label-title {
-			overflow: auto;
+			overflow: hidden;
 			h2 {
 				float: left;
 				margin: 0;
+				max-width: calc(#{$max-width} - 80px);
 			}
 			span {
 				float: right;
@@ -1023,6 +1024,13 @@ footer {
 			}
 			&:first-child a #thumbnail {
 				width: 100%;
+			}
+		}
+		#archive, #cat-tag-search {
+			#label-title {
+				h2 {
+					max-width: calc(100% - 80px);
+				}
 			}
 		}
 		#archive {
