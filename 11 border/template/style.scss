@@ -606,6 +606,7 @@ main {
 							line-height: $line-height;
 							margin: 0;
 							color: $second-color;
+							transition: $transition;
 						}
 					}
 				}				
@@ -746,6 +747,7 @@ main {
 				line-height: $line-height;
 				margin: 0;
 				color: $second-color;
+				transition: $transition;
 			}
 		}
 	}
