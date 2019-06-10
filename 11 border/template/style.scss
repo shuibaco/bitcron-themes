@@ -170,7 +170,6 @@ figure {
 }
 table {
 	width: calc(100% + 2rem);
-	word-break: break-all;
 	background: $second-bg-color;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -229,6 +228,9 @@ sup {
 }
 
 /* Special edit for Bitcron */
+.md_line {
+	display: block;
+}
 .todo_done_item {
 	/*text-decoration: line-through;*/
 	color: $second-color;
@@ -277,6 +279,9 @@ sup {
 			margin: 0;
 			padding: 0;
 		}
+	}
+	.md_line {
+		display: inline;
 	}
 }
 #back_to_top {
