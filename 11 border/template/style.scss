@@ -170,6 +170,7 @@ figure {
 }
 table {
 	width: calc(100% + 2rem);
+	word-break: break-all;
 	background: $second-bg-color;
 	border-collapse: collapse;
 	border-spacing: 0;
