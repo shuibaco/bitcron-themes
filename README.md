@@ -4,17 +4,18 @@
 
 | 序号 | 主题说明 | 发布时间 | 价格
 | --- | --- | --- | --- |
-| 1 | [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello) | 2017-06-09 | ¥00
-| 2 | [「庸」(Ordinary)](https://blog.shuiba.co/bitcron-theme-ordinary) | 2017-07-21 | ¥60
-| 3 | [「日记」(Diary)](https://blog.shuiba.co/bitcron-theme-diary) | 2017-07-24 | ¥40
-| 4 | [「它布」(Tab)](https://blog.shuiba.co/bitcron-theme-tab) | 2017-07-26 | ¥60
-| 5 | [「墨」(Ink)](https://blog.shuiba.co/bitcron-theme-ink) | 2017-07-31 | ¥70
-| 6 | [「黑白」(Monochrome)](https://blog.shuiba.co/bitcron-theme-monochrome) | 2017-09-20 | ¥60
-| 7 | [「淡泊」(Light)](https://blog.shuiba.co/bitcron-theme-light) | 2017-10-24 | ¥60
-| 8 | [「入灰」(inGrey)](https://blog.shuiba.co/bitcron-theme-ingrey) | 2017-11-13 | ¥70
-| 9 | [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square) | 2017-12-13 | ¥60
+| 01 | [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello) | 2017-06-09 | ¥00
+| 02 | [「庸」(Ordinary)](https://blog.shuiba.co/bitcron-theme-ordinary) | 2017-07-21 | ¥60
+| 03 | [「日记」(Diary)](https://blog.shuiba.co/bitcron-theme-diary) | 2017-07-24 | ¥40
+| 04 | [「它布」(Tab)](https://blog.shuiba.co/bitcron-theme-tab) | 2017-07-26 | ¥60
+| 05 | [「墨」(Ink)](https://blog.shuiba.co/bitcron-theme-ink) | 2017-07-31 | ¥70
+| 06 | [「黑白」(Monochrome)](https://blog.shuiba.co/bitcron-theme-monochrome) | 2017-09-20 | ¥60
+| 07 | [「淡泊」(Light)](https://blog.shuiba.co/bitcron-theme-light) | 2017-10-24 | ¥60
+| 08 | [「入灰」(inGrey)](https://blog.shuiba.co/bitcron-theme-ingrey) | 2017-11-13 | ¥70
+| 09 | [「方」(Square)](https://blog.shuiba.co/bitcron-theme-square) | 2017-12-13 | ¥60
 | 10 | [「卡片」(Card)](https://blog.shuiba.co/bitcron-theme-card) | 2018-03-03 | ¥70
-| 11 | [「界」(Border)](https://blog.shuiba.co/bitcron-theme-border) | 2019-04-23 | ¥60
+| 11 | [「界」(Border)](https://blog.shuiba.co/bitcron-theme-border) | 2019-04-23 | ¥80
+| 12 | [「帧」(Frame)](https://blog.shuiba.co/bitcron-theme-frame) | 2020-06-11 | ¥80
 
 ## 付费/捐赠
 
