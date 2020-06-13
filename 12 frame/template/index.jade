@@ -1,0 +1,93 @@
+html
+	head
+		block title
+			if site.configs.sub_title
+				title= site.title + ' - ' + site.configs.sub_title
+			else
+				title= site.title
+
+		+h.headers
+		+h.load('/template/style.scss')
+		link(rel='apple-touch-icon', href=site.site_avatar)
+		script
+			(function(d) {
+				var config = {
+					kitId: 'hjm5wlx',
+					scriptTimeout: 3000,
+					async: true
+				},
+				h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+			})(document);
+
+	body
+		header
+			#logo
+				a(href='/')
+					img(src=site.site_avatar, alt=site.title)
+					span= site.title
+			nav
+				+site.just_nav
+
+		main
+			#line
+			block content
+				recent_posts = posts.get_recent(1)
+				for post in recent_posts
+					#post-header
+						#prefix
+							span LATEST UPDATE
+							if post.category
+								span: a(href=post.category.url)= post.category.title
+							if post.tags
+								for tag in post.tags
+									span: a(href='/tag/{{tag}}')= tag					
+						h1= post.title
+						#info
+							time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y年%m月%d日 %H:%M')
+							span= ('{0:,}'.format(post.text_words)) + '字'
+							span= ('{0:,}'.format(post.visits or 0)) + '阅'
+							if post.metadata.comment not in ['no', 'No', False]
+								span= ('{0:,}'.format(post.comments_count or 0)) + '评'
+							
+					#post-content
+						post.content
+
+					#comments
+						if post.metadata.comment not in ['no', 'No', False]
+							#comment
+								+post.comments_as_html()
+					
+			footer
+				+site.socials
+
+				#credit
+					if site.configs.admin_name
+						| &copy; {{site.now.year}} {{site.configs.admin_name}}.
+					else
+						| &copy; {{site.now.year}} {{site.title}}.
+				
+				#siteinfo
+					span= '%s篇文章' %(d.get_data(types='post', return_count=true, with_page=false))
+					span= '%s字' %('{0:,}'.format(site.text_words))
+				
+				#poweredby
+					| Powered by <a href='https://bitcron.com' target='_blank'>Bitcron</a>. Theme <a href='https://blog.shuiba.co/bitcron-theme-frame' target='_blank'>Frame</a> by <a href='https://shuiba.co' target='_blank'>Shuibaco</a>.
+
+		+h.back_to_top(label='↾')
+
+		script
+			// smooth scrolling
+			$(function() {
+				$('a[href*=#]:not([href=#])').click(function() {
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html,body').animate({
+								scrollTop: target.offset().top-20
+							}, 500);
+							return false;
+						}
+					}
+				});
+			});

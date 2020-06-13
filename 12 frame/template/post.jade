@@ -1,0 +1,28 @@
+extends index
+
+block title
+	title= post.title + ' - ' + site.title
+
+block content
+	#post-header
+		#prefix
+			if post.category
+				span: a(href=post.category.url)= post.category.title
+			if post.tags
+				for tag in post.tags
+					span: a(href='/tag/{{tag}}')= tag					
+		h1= post.title
+		#info
+			time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y年%m月%d日 %H:%M')
+			span= ('{0:,}'.format(post.text_words)) + '字'
+			span= ('{0:,}'.format(post.visits or 0)) + '阅'
+			if post.metadata.comment not in ['no', 'No', False]
+				span= ('{0:,}'.format(post.comments_count or 0)) + '评'						
+
+	#post-content
+		post.content
+
+	#comments
+		if post.metadata.comment not in ['no', 'No', False]
+			#comment
+				+post.comments_as_html()

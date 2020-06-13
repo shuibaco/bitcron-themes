@@ -1,0 +1,48 @@
+extends index
+
+block title
+	title= '归档 - ' + site.title
+
+block content
+	#cat-tag
+		if posts.categories
+			#cats
+				.title
+					h1 分类
+					span= '共有%s个分类' %(d.get_data(types='folder', return_count=true, level=1, min_posts_count=1, render=true))
+				ul.item-list: for category in posts.categories
+					li: a(href=category.url)= category.title
+						span= category.posts_count
+		
+		if site.tags
+			#tags
+				.title
+					h1 标签
+					span= '共有%s个标签' %site.tags.length
+				ul.item-list: for tag_name, tag_count in site.tags
+					li: a(href='/tag/{{tag_name}}')= tag_name
+						span= tag_count
+
+	#archive
+		.title
+			h1 归档
+			span= '共有%s篇文章' %(d.get_data(types='post', return_count=true, with_page=false))
+
+		entries = d.get_data(types='post', limit=10, sort='desc').group('-date:year')
+		for year, year_posts in entries
+			year_start_date = '%s-1-1' %year
+			year_end_date = '%s-1-1' %(year.int+1)
+			yearly_count = d.get_data(types='post', return_count=true, date_start=year_start_date, date_end=year_end_date)
+
+			.sub-title
+				h2= year + '年'
+				span= yearly_count
+			
+			ul.post-list: for post in year_posts
+				li: a(href=post.url)
+					time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%m.%d')
+					h4= post.title
+					span= ('{0:,}'.format(post.visits or 0)) + '°'
+
+		#pager
+			+h.paginator(style='auto', max_count='8')

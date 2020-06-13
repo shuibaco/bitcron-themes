@@ -1,0 +1,26 @@
+extends index
+
+block title
+	if request.args.s
+		title= '搜索：' + request.args.s + ' - ' + site.title
+	else
+		title= '搜索 - ' + site.title
+
+block content
+	#search-bar
+		.title
+			h1 搜索
+			span= '从%s篇文章中找到你想要的' %(d.get_data(types='post', return_count=true, with_page=false))
+		+posts.search_in_html(placeholder='输入关键词并回车……', base_url='/search')
+
+
+	if request.args.s
+		#search-result
+			.sub-title
+				h2= '共找到%s篇与「' %(d.get_data(types='post', keywords=request.args.s, return_count=true, with_page=false)) + request.args.s + '」有关的文章' 
+			
+			ul.post-list: for post in posts
+				li: a(href=post.url)
+					time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y.%m.%d')
+					h4= post.title
+					span= ('{0:,}'.format(post.visits or 0)) + '°'

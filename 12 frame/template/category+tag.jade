@@ -1,0 +1,50 @@
+extends index
+
+block title
+	if request.path.startswith('/category/') and posts.category
+		title= '分类：' + posts.category.title + ' - ' + site.title
+	elif request.path.startswith('/tag/') and posts.tags
+		title= '标签：' + posts.tags.join('+') + ' - ' + site.title
+	else
+		title= site.title
+
+block content
+	#cat-tag-items
+		if request.path.startswith('/category/') and posts.category
+			.sub-title
+				h1= '分类：' + posts.category.title
+				span= '该分类下共有%s篇文章' %posts.category.posts_count
+		
+		if request.path.startswith('/tag/') and posts.tags
+			.sub-title
+				h1= '标签：' + posts.tags.join('+')
+				tag = request.url | replace('https://'+site.domain+'/tag/','')
+				span= '该标签下共有%s篇文章' %(d.get_data(types='post', tags=tag, return_count=true, with_page=false))
+
+		ul.post-list: for post in posts
+			li: a(href=post.url)
+				time(datetime= post.date.format('%Y-%m-%d'))= post.date.format('%Y.%m.%d')
+				h4= post.title
+				span= ('{0:,}'.format(post.visits or 0)) + '°'
+
+		#pager
+			+h.paginator(style='auto', max_count='8')
+
+
+	if request.path.startswith('/category/') and posts.category
+		#all-cats
+			.title
+				h1 所有分类
+				span= '共有%s个分类' %(d.get_data(types='folder', return_count=true, level=1, min_posts_count=1, render=true))
+			ul.item-list: for category in posts.categories
+				li: a(href=category.url)= category.title
+					span= category.posts_count
+
+	if request.path.startswith('/tag/') and posts.tags
+		#all-tags
+			.title
+				h1 所有标签
+				span= '共有%s个标签' %site.tags.length
+			ul.item-list: for tag_name, tag_count in site.tags
+				li: a(href='/tag/{{tag_name}}')= tag_name
+					span= tag_count
