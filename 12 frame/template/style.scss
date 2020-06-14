@@ -402,6 +402,7 @@ main {
 	&::-webkit-scrollbar {
 		display: none;
 	}
+	scroll-behavior: smooth;
 	margin: 2rem 2rem 0;
 	background-color: #fff;
 	position: fixed;
