@@ -100,7 +100,9 @@ figure {
 	figcaption {
 		@extend .module;
 		color: $second-color;
-		margin: 0 1em 1em;
+		text-align: left;
+		line-height: 1.4em;
+		margin-top: 5px;
 	}
 }
 pre {
@@ -815,6 +817,9 @@ main footer {
 @media only screen and (max-width : 767px) {
 	pre, blockquote, figure, table {
 		margin: 1em -1rem;
+	}
+	figcaption {
+		margin: 5px 1em 1em;
 	}
 	table {
 		width: calc(100% + 2rem);
