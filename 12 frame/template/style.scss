@@ -229,7 +229,6 @@ sup {
 video, audio {
 	width: 100%;
 	outline: none;
-	background: #f1f3f4;
 }
 ::-moz-selection { 
 	background: #fefecc;
@@ -829,6 +828,10 @@ main footer {
 	}
 	table {
 		width: calc(100% + 2rem);
+	}
+	audio {
+		margin: 0 1rem;
+		width: calc(100% - 2rem);
 	}
 	header {
 		padding: 10px 1rem;
