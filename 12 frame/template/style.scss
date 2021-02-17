@@ -107,7 +107,7 @@ figure {
 	}
 }
 pre {
-	font-family: monospace, serif;
+	font-family: Consolas, monospace, serif;
 	text-align: left;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -126,7 +126,7 @@ pre {
 }
 code {
 	@extend .module;
-	font-family: monospace, serif;
+	font-family: Consolas, monospace, serif;
 	padding: 5px 10px;
 	margin: 0 3px;
 	background: $second-bg-color;
@@ -478,7 +478,7 @@ main {
 			margin-bottom: 10px;
 			span {
 				display: inline-block;
-				font-family: monospace, 'Microsoft Yahei', sans-serif;
+				font-family: Consolas, monospace, 'Microsoft Yahei', sans-serif;
 				font-size: 13px;
 				line-height: 22px;
 				background: $bg-color;
