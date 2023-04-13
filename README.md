@@ -1,10 +1,12 @@
+`！` 2021年，Bitcron进化至FarBox 2.0，以下主题的使用需要手动调整细节。
+
 ## 关于
 
 这里是由[水八口](https://shuiba.co)原创设计并编写的[Bitcron](https://bitcron.com)主题集合，欢迎查看学习、购买使用。
 
 | 序号 | 主题说明 | 发布时间 | 价格
 | --- | --- | --- | --- |
-| 01 | [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello) | 2017-06-09 | ¥00
+| 01 | [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello) | 2017-06-09 | -
 | 02 | [「庸」(Ordinary)](https://blog.shuiba.co/bitcron-theme-ordinary) | 2017-07-21 | ¥60
 | 03 | [「日记」(Diary)](https://blog.shuiba.co/bitcron-theme-diary) | 2017-07-24 | ¥40
 | 04 | [「它布」(Tab)](https://blog.shuiba.co/bitcron-theme-tab) | 2017-07-26 | ¥60
