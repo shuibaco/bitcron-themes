@@ -25,10 +25,6 @@
 
 ![alipay QR code](alipay.jpg)
 
-### PayPal
-
-[paypal.me/shuibaco](https://www.paypal.me/shuibaco)
-
 ## 版权声明
 
 本人水八口/Shuibaco原创的Bitcron主题，包含发布在GitHub上的开源代码采用以下版权许可：
