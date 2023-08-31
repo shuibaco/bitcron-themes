@@ -21,9 +21,8 @@
 
 ## 付费/捐赠
 
-### 支付宝
-
 ![alipay QR code](alipay.jpg)
+支付宝
 
 ## 版权声明
 
