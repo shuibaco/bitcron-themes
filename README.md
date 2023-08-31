@@ -1,5 +1,7 @@
 `!!` 2021年，Bitcron进化至FarBox 2.0，以下主题的使用可能需要手动调整部分细节。
 
+---
+
 ## 关于
 
 这里是由[水八口](https://shuiba.co)原创设计并编写的[Bitcron](https://bitcron.com)主题集合，欢迎查看学习、购买使用。
