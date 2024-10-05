@@ -8,7 +8,7 @@
 
 | 序号 | 主题说明 | 发布时间 | 价格
 | --- | --- | --- | --- |
-| 01 | [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello) | 2017-06-09 | -
+| 01 | [「你好呀」(Hello)](https://blog.shuiba.co/bitcron-theme-hello) | 2017-06-09 | 免费
 | 02 | [「庸」(Ordinary)](https://blog.shuiba.co/bitcron-theme-ordinary) | 2017-07-21 | ¥60
 | 03 | [「日记」(Diary)](https://blog.shuiba.co/bitcron-theme-diary) | 2017-07-24 | ¥40
 | 04 | [「它布」(Tab)](https://blog.shuiba.co/bitcron-theme-tab) | 2017-07-26 | ¥60
